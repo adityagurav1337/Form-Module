@@ -1,0 +1,27 @@
+<!-- <h1>Template Driven Form</h1>
+<form #login='ngForm' (ngSubmit)="Submit(login.value)">
+  Usrename
+  <input type="text" name="Usrename" ngModel/>
+<br><br>
+  password
+  <input type="password" name="password" ngModel>
+<br><br>
+  <input type="submit" value="save">
+</form>
+
+<hr> -->
+<h1>Reactive Form (Model Driven Forms)</h1>
+<form [formGroup]="formdata" (ngSubmit)="Submit (formdata.value)">
+email <span class="text-danger" *ngIf="formdata.controls.email.touched && formdata.controls.email.invalid">plece enter email</span><br>
+<input type="email" [ngClass]="{'border-danger':formdata.controls.email.touched && formdata.controls.email.invalid}" name="eamil" formControlName="email">
+<br><br>
+
+password <span class="text-danger" *ngIf="formdata.controls.password.touched && formdata.controls.password.invalid">plece enter password</span><br>
+<input type="password" [ngClass]="{'border-danger':formdata.controls.password.touched && formdata.controls.password.invalid}" name="password" formControlName="password" >
+<input type="submit" value="save" [disabled]="!formdata.valid">
+</form>
+
+
+
+
+
